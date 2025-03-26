@@ -1,54 +1,41 @@
-# React + TypeScript + Vite
+# TodoGo Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é o frontend do projeto **TodoGo**, desenvolvido para validar um backend criado em Golang. O backend foi implementado com fins acadêmicos e tem como objetivo demonstrar conceitos de autenticação, gerenciamento de tarefas e integração entre frontend e backend.
 
-Currently, two official plugins are available:
+## Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React**: Biblioteca para construção de interfaces de usuário.
+- **TypeScript**: Superset do JavaScript que adiciona tipagem estática.
+- **Material-UI (MUI)**: Biblioteca de componentes React para estilização.
+- **Axios**: Cliente HTTP para comunicação com o backend.
+- **Day.js**: Biblioteca para manipulação de datas.
+- **Vite**: Ferramenta de build rápida para projetos frontend.
 
-## Expanding the ESLint configuration
+## Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Autenticação**: Login e criação de novos usuários.
+- **Gerenciamento de Tarefas**:
+  - Listagem de tarefas.
+  - Criação de novas tarefas.
+  - Edição de tarefas existentes.
+  - Marcar tarefas como concluídas.
+- **Integração com Backend**: Comunicação com o backend em Golang para persistência de dados.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Como Executar
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1. Certifique-se de que o backend em Golang está rodando localmente na porta `8080`.
+2. Clone este repositório:
+   ```bash
+   git clone <url-do-repositorio>
+   cd todoFront
+   ```
+3. Instale as dependências:
+   ```bash
+   npm install
+   ```
+4. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
+5. O Frontend estará disponível em http://localhost:5173
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
